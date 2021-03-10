@@ -1,6 +1,6 @@
 import React,{useState,useLayoutEffect} from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View,KeyboardAvoidingView } from 'react-native'
+import { StyleSheet, View,KeyboardAvoidingView,ScrollView } from 'react-native'
 import {Button,Input,Image,Text} from 'react-native-elements'
 import { auth } from '../firebase';
 
@@ -32,6 +32,7 @@ const SignUpScreen = ({navigation}) => {
         }).catch(error =>alert(error.message))
     }
     return (
+        <ScrollView>
         <KeyboardAvoidingView behavior='padding' style={styles.container}>
         <StatusBar style= "light" />
         <Text h2 style={{fontWeight: "600",marginBottom:30,marginTop:20}}>Create a Trello account</Text>
@@ -59,6 +60,7 @@ const SignUpScreen = ({navigation}) => {
             } />
         <View style={{height:100} }/>
     </KeyboardAvoidingView>
+    </ScrollView>
     )
 }
 
@@ -80,4 +82,3 @@ const styles = StyleSheet.create({
         marginTop: 10
     }
 })
-

@@ -1,9 +1,15 @@
 import React,{useLayoutEffect} from 'react'
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity,Alert } from 'react-native'
 import {SimpleLineIcons,Ionicons} from '@expo/vector-icons'
-
-export default HomeScreen = ({navigation}) => {
-
+import { Avatar } from 'react-native-elements/dist/avatar/Avatar'
+import {auth,db} from "../firebase"
+import { Button} from 'react-native-elements'
+const HomeScreen = ({navigation}) => {
+    const signOutUser = ()=>{
+        auth.signOut().then(()=>{
+            navigation.replace("First")
+        })
+    }
     useLayoutEffect(()=>{
         navigation.setOptions({
                 title:"Home",
@@ -12,6 +18,13 @@ export default HomeScreen = ({navigation}) => {
                 },
                 headerTitleStyle:{color:"white"},
                 headerTintColor:{color:"white"},
+                headerLeft : ()=>(
+                    <View style={{marginLeft:20}}>
+                        <TouchableOpacity activeOpacity={0.5} onPress={signOutUser}>
+                        <Avatar rounded source={{uri: auth?.currentUser?.photoURL }} />
+                        </TouchableOpacity>
+                    </View>
+                ),
                 headerRight : ()=>(
                     <View 
                     style={{marginRight:20,
@@ -43,10 +56,10 @@ export default HomeScreen = ({navigation}) => {
 
     return (
         <View>
-            <Text>HomeScreen</Text>
+            Home
         </View>
     )
 }
-
+export default HomeScreen
 
 const styles = StyleSheet.create({})
