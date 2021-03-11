@@ -1,7 +1,7 @@
 import React, { useLayoutEffect,useEffect } from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image,TouchableWithoutFeedback } from 'react-native'
 import { Button, ThemeProvider } from 'react-native-elements'
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 const FirstScreen = ({ navigation }) => {
 
     useLayoutEffect(() => {
@@ -50,6 +50,11 @@ const FirstScreen = ({ navigation }) => {
                         } />
                 </ThemeProvider>
             </View>
+            <View style={styles.forgetpw}>
+               <TouchableWithoutFeedback  onPress={ () => navigation.navigate("ForgetPassword")}> 
+               <Text style={{fontSize:18,color:"white",fontWeight: 'bold',textDecorationLine: 'underline'}}>Forget Password?</Text>
+               </TouchableWithoutFeedback> 
+            </View>
         </View>
     )
 }
@@ -86,5 +91,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         paddingTop: 30
+    },
+    forgetpw:{
+        marginTop:20,
+        justifyContent:'center',
+        alignItems:"center"
     }
 })

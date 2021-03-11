@@ -2,7 +2,7 @@ import React,{useState,useLayoutEffect} from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View,KeyboardAvoidingView,ScrollView } from 'react-native'
 import {Button,Input,Image,Text} from 'react-native-elements'
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 
 
 const SignUpScreen = ({navigation}) => {
@@ -35,7 +35,7 @@ const SignUpScreen = ({navigation}) => {
         <ScrollView>
         <KeyboardAvoidingView behavior='padding' style={styles.container}>
         <StatusBar style= "light" />
-        <Text h2 style={{fontWeight: "600",marginBottom:30,marginTop:20}}>Create a Trello account</Text>
+         <View style={{height:"30%"}}></View>
         <Image source={{ uri: "https://www.itssimplyplaced.com/wp-content/uploads/2015/03/Trello-Logo.jpg" }}
                 style={{ width: 400, height: 200,resizeMode: 'contain', }}
             />

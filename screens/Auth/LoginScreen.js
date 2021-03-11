@@ -2,7 +2,7 @@ import React, { useState,useEffect,useLayoutEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, KeyboardAvoidingView,ScrollView } from 'react-native'
 import { Button, Input, Image } from 'react-native-elements'
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 
 const LoginScreen = ({ navigation }) => {
 
@@ -35,6 +35,7 @@ const LoginScreen = ({ navigation }) => {
         <ScrollView>
         <KeyboardAvoidingView behavior='padding' style={styles.container}>
             <StatusBar style="light" />
+            <View style={{height:"30%"}}></View>
             <Image source={{ uri: "https://www.itssimplyplaced.com/wp-content/uploads/2015/03/Trello-Logo.jpg" }}
                 style={{ width: 400, height: 200,resizeMode: 'contain', }}
             />
