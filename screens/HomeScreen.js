@@ -3,15 +3,16 @@ import React,{useLayoutEffect} from 'react'
 import { StyleSheet, Text, View,TouchableOpacity,Alert } from 'react-native'
 import {auth,db} from "../firebase"
 import { Button} from 'react-native-elements'
+
 const HomeScreen = ({navigation}) => {
     const signOutUser = ()=>{
-        auth.signOut().then(()=>{
-            navigation.replace("First")
-        })
+        
+            navigation.replace("CreateTeam")
+   
     }
     useLayoutEffect(()=>{
         navigation.setOptions({
-                title:"Home"
+                title:"Projects"
             });
         }, [navigation])
 
@@ -19,6 +20,7 @@ const HomeScreen = ({navigation}) => {
         <View>
           <Text>  Home</Text>
           <Button title="Sign Out" onPress={signOutUser} />
+         
         </View>
     )
 }

@@ -20,7 +20,7 @@ const SignUpScreen = ({navigation}) => {
     },
     [navigation])
 
-    const register=()=>{
+    const register=(navigate)=>{
         auth
         .createUserWithEmailAndPassword(email,password)
         .then((authUser) => {
@@ -28,7 +28,7 @@ const SignUpScreen = ({navigation}) => {
                 displayName: name,
                 photoURL : imageUrl || "https://banner2.cleanpng.com/20180714/fok/kisspng-computer-icons-question-mark-clip-art-profile-picture-icon-5b49de29708b76.026875621531567657461.jpg"
             })
-
+            navigate("CreateTeam")
         }).catch(error =>alert(error.message))
     }
     return (
@@ -54,9 +54,9 @@ const SignUpScreen = ({navigation}) => {
              onSubmitEditing={register}
             />
         </View>
-        <Button title="Sign in" raised containerStyle={styles.button}  onPress= {register} />
+        <Button title="Sign in" raised containerStyle={styles.button}  onPress= {()=>register(navigation.navigate)} />
         <Button title="Log in" type="outline" containerStyle={styles.button} onPress={
-            ()=>navigation.navigate("Login")
+            ()=>navigation.navigate("CreateTeam")
             } />
         <View style={{height:100} }/>
     </KeyboardAvoidingView>

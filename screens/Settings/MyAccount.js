@@ -4,6 +4,10 @@ import { StyleSheet, Text, ScrollView ,View,Image,TouchableOpacity} from 'react-
 import {auth,db} from "../../firebase"
 
 const MyAccount = ({navigation}) => {
+
+  const settingsOptions=[
+    {  }
+  ]
     useLayoutEffect(()=>{
         navigation.setOptions({
                 title:"Account",
@@ -26,14 +30,8 @@ const MyAccount = ({navigation}) => {
           source={{uri: auth?.currentUser?.photoURL }}
         />
         <Text style={styles.userName}>{auth?.currentUser?.displayName}</Text>
+        <Text style={styles.email}>{auth?.currentUser?.email}</Text>
         <View style={styles.buttonContainer}>
-        <TouchableOpacity
-                style={styles.userBtn}
-                onPress={() => {
-                  navigation.navigate('EditProfile');
-                }}>
-                <Text style={styles.userBtnTxt}>Edit</Text>
-              </TouchableOpacity>
               <TouchableOpacity style={styles.userBtn} onPress={signOutUser}>
                 <Text style={styles.userBtnTxt}>Logout</Text>
               </TouchableOpacity>
@@ -60,6 +58,11 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: 'bold',
         marginTop: 10,
+        marginBottom: 5,
+      },
+      email: {
+        fontSize: 15,
+        fontWeight: '600',
         marginBottom: 10,
       },
       userBtn: {

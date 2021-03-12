@@ -6,6 +6,8 @@ import FirstScreen from './screens/Auth/FirstScreen';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/Auth/LoginScreen';
 import SignUpScreen from './screens/Auth/SignUpScreen';
+import CreateTeam from './screens/Auth/CreateTeam';
+import JoinTeam from './screens/Auth/JoinTeam';
 import ForgetPassword from './screens/Auth/ForgetPassword';
 import SettingScreen from './screens/Settings/SettingScreen';
 import EditProfile from './screens/Settings/EditProfile';
@@ -33,7 +35,7 @@ const HomeStack=()=>{
   return (
     <HStack.Navigator screenOptions={globalScreenOptions}>
         <HStack.Screen
-          name='Home' component={HomeScreen} />
+          name='Projects' component={HomeScreen} />
       </HStack.Navigator>
   )
 }
@@ -41,7 +43,7 @@ const TeamStack=()=>{
   return (
     <TStack.Navigator screenOptions={globalScreenOptions}>
         <TStack.Screen
-          name='Teams' component={TeamsScreen} />
+          name='Issues' component={TeamsScreen} />
       </TStack.Navigator>
   )
 }
@@ -59,29 +61,29 @@ const AccountStack=()=>{
   const BottomTabNavigator = () => {
     return (
       <Tab.Navigator
-        initialRouteName="Home"
+        initialRouteName="Projects"
         activeColor="white"
-        inactiveColor="grey"
+        inactiveColor="#211f1f"
         barStyle={{ backgroundColor: '#2577c4' }}
         tabBarOptions={{ showLabel: false }}
       >
         <Tab.Screen
-          name="Home"
+          name="Projects"
           component={HomeStack}
           options={{
           
             tabBarIcon: ({focused}) => (
-              <MaterialIcons name="group"  color={focused? "white" :"grey"} size={26} />
+              <MaterialIcons name="folder-shared"  color={focused? "white" :"#211f1f"} size={26} />
             ),
           }}
         />
         <Tab.Screen
-          name="Teams"
+          name="Issues"
           component={TeamStack}
           options={{
           
             tabBarIcon: ({focused})=> (
-              <MaterialIcons name="home" color={focused? "white" :"grey"} size={26} />
+              <MaterialIcons name="stacked-line-chart" color={focused? "white" :"#211f1f"} size={26} />
             ),
           }}
         />
@@ -91,7 +93,7 @@ const AccountStack=()=>{
           options={{
            
             tabBarIcon: ({focused}) => (
-              <MaterialIcons name="account-circle" color={focused? "white" :"grey"} size={26} />
+              <MaterialIcons name="account-circle" color={focused? "white" :"#211f1f"} size={26} />
             ),
           }}
         />
@@ -111,8 +113,12 @@ const AccountStack=()=>{
           name='Login' component={LoginScreen} />
          <Stack.Screen
           name='ForgetPassword' component={ForgetPassword} />
+          <Stack.Screen
+          name='CreateTeam' component={CreateTeam} />
+          <Stack.Screen
+          name='JoinTeam' component={JoinTeam} />
         <Stack.Screen
-          name='Home1' component={HomeScreen} />
+          name='Projects' component={HomeScreen} />
         <Stack.Screen
           name='Home' component={BottomTabNavigator} options={{headerShown: false}}/>
         <Stack.Screen
