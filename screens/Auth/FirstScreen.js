@@ -55,6 +55,11 @@ const FirstScreen = ({ navigation }) => {
                <Text style={{fontSize:18,color:"white",fontWeight: 'bold',textDecorationLine: 'underline'}}>Forget Password?</Text>
                </TouchableWithoutFeedback> 
             </View>
+            <View style={styles.forgetpw}>
+               <TouchableWithoutFeedback  onPress={ () => navigation.navigate("RegisterOrg")}> 
+               <Text style={{fontSize:18,color:"white",fontWeight: 'bold',textDecorationLine: 'underline'}}>Register your Organization</Text>
+               </TouchableWithoutFeedback> 
+            </View>
         </View>
     )
 }

@@ -1,17 +1,22 @@
 import React, { useState,useEffect,useLayoutEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, KeyboardAvoidingView,ScrollView } from 'react-native'
+import { StyleSheet, View, KeyboardAvoidingView,ScrollView,Alert } from 'react-native'
 import { Button, Input, Image } from 'react-native-elements'
-import { auth } from '../../firebase';
+import { auth,database } from '../../firebase';
 
 const LoginScreen = ({ navigation }) => {
-
+    const [orgname, setOrgName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState("")
     const signIn = () => { 
+        if (orgname==='' || email==='' || password ===''){
+            alert("Fill the form first")
+         }
+         else{
         auth
         .signInWithEmailAndPassword(email,password)
         .catch(error =>alert(error.message))
+         }
     }
     useLayoutEffect(()=>{
         navigation.setOptions({
@@ -40,6 +45,9 @@ const LoginScreen = ({ navigation }) => {
                 style={{ width: 400, height: 200,resizeMode: 'contain', }}
             />
             <View style={styles.inputContainer}>
+                <Input placeholder="Organization name" autofocus type="email"
+                    value={orgname} onChangeText={text => setOrgName(text)}
+                />
                 <Input placeholder="Email" autofocus type="email"
                     value={email} onChangeText={text => setEmail(text)}
                 />

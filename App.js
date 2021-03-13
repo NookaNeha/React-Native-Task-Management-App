@@ -6,8 +6,8 @@ import FirstScreen from './screens/Auth/FirstScreen';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/Auth/LoginScreen';
 import SignUpScreen from './screens/Auth/SignUpScreen';
-import CreateTeam from './screens/Auth/CreateTeam';
-import JoinTeam from './screens/Auth/JoinTeam';
+import RegisterOrganization from './screens/Auth/RegisterOrganization';
+
 import ForgetPassword from './screens/Auth/ForgetPassword';
 import SettingScreen from './screens/Settings/SettingScreen';
 import EditProfile from './screens/Settings/EditProfile';
@@ -114,9 +114,7 @@ const AccountStack=()=>{
          <Stack.Screen
           name='ForgetPassword' component={ForgetPassword} />
           <Stack.Screen
-          name='CreateTeam' component={CreateTeam} />
-          <Stack.Screen
-          name='JoinTeam' component={JoinTeam} />
+          name='RegisterOrg' component={RegisterOrganization} />
         <Stack.Screen
           name='Projects' component={HomeScreen} />
         <Stack.Screen
